@@ -1,3 +1,4 @@
+
 //  Card_Old_Gods_game
 
 
@@ -5,7 +6,7 @@
 #define Sub_classes_hpp
 
 #include <iostream>
-#include "Card.hpp"
+//#include "Card.hpp"
 
 class Ressource
 {
@@ -35,12 +36,22 @@ protected:
     int* m_blood_coast;
     int* m_gold_coast;
     int* m_power_coast;
-    int m_damage_value;
+    int* m_damage_value;
     std::string m_card_name;
-    int card_type;
+    int card_type;//1-terra, 2-perso, 3-special
+    unsigned long card_unique_number;
+    
     //image de la carte A AJOUTER
     
 public:
+    Static_Parameters();
+    Static_Parameters(int * blood, int * gold, int * power, int * damage, std::string name, int type);
+    ~Static_Parameters();
+    
+    int Get_damage_value();
+    void Set_damage_value(int damage);
+    
+    //pas besoin de setters et getters car ce sint les partametres statiques
     
 };
 
@@ -74,6 +85,15 @@ protected:
     int *m_force;
     int *m_HP;
 public:
+    Variant_Parametrs();
+    Variant_Parametrs(int * m_force, int* m_HP);
+    ~Variant_Parametrs();
+    
+    int Get_force();
+    int Get_HP();
+    
+    void Set_force(int force);
+    void Set_HP(int HP);
     
 };
 
