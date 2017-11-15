@@ -1,4 +1,4 @@
-# Wrath_of_the_Olds
+# Wrath_of_the_Old_Ones
 ECE_project_sem1
 
 CDC de base:
