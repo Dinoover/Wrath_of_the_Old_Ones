@@ -62,3 +62,23 @@ void Ressource::Set_influence(int influence)
 {
     *m_influence=influence;
 }
+
+int Variant_Parametrs::Get_force()
+{
+    return m_force;
+}
+
+int Variant_Parametrs:: Get_HP()
+{
+    return m_HP;
+}
+
+void Variant_Parametrs:: Set_force(int force)
+{
+    *m_force = force;
+}
+
+void Variant_Parametrs:: Set_HP(int HP)
+{
+    *m_HP = HP;
+}
