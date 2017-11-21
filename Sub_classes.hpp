@@ -14,21 +14,25 @@ protected:
     int* m_blood;
     int* m_gold;
     int* m_power;
+    int* m_influence;
 public:
     Ressource();
     
-    Ressource (int blood, int gold, int power);
+    Ressource (int blood, int gold, int power, int influence);
     
     ~Ressource();
     
     int Get_blood();
     int Get_gold();
     int Get_power();
+    int Get_influence();
     
-    void Set_blood();
-    void Set_gold();
-    void Set_power();
+    void Set_blood(int var);
+    void Set_gold(int var);
+    void Set_power(int var);
+    void Set_influence(int influence);
 };
+
 
 class Static_Parameters
 {
