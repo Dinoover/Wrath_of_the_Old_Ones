@@ -17,3 +17,4 @@ CDC de base:
 • Les cartes disent ce qu'elles font et font ce qu'elles disent (descriptions consultables)
 • Attribution de la carte enjeu du perdant à la collection du gagnant
 • Interface mode console pure, std::cout et std::cin, présentations séquentielles des infos
+bite
