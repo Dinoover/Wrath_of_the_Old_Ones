@@ -40,7 +40,9 @@ protected:
     int* m_blood_coast;
     int* m_gold_coast;
     int* m_power_coast;
+    int* m_influence_coast;
     int* m_damage_value;
+    
     std::string m_card_name;
     int card_type;//1-terra, 2-perso, 3-special
     unsigned long card_unique_number;
@@ -49,7 +51,7 @@ protected:
     
 public:
     Static_Parameters();
-    Static_Parameters(int * blood, int * gold, int * power, int * damage, std::string name, int type);
+    Static_Parameters(int * blood, int * gold, int * power,int * influence, int * damage, std::string name, int type);
     ~Static_Parameters();
     
     int Get_damage_value();
