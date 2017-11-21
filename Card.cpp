@@ -8,32 +8,32 @@
 
 #include "Card.hpp"
 
-Card::Get_hand_status()
+bool Card:: Get_hand_status()
 {
     return m_hand;
 }
 
-Card::Get_invoke_status()
+bool Card:: Get_invoke_status()
 {
-    return m_invoke;
+    return m_invoked;
 }
 
-Card::Get_live_status()
+bool Card:: Get_live_status()
 {
-    m_alive;
+    return m_alive;
 }
 
-void Card::Set_hand_status(bool set)
+void Card:: Set_hand_status(bool set)
 {
     m_hand=set;
 }
 
-void Card::Set_invoke_status(bool set)
+void Card:: Set_invoke_status(bool set)
 {
-    m_invoke=set;
+    m_invoked=set;
 }
 
-void Card::Set_live_status(bool set)
+void Card:: Set_live_status(bool set)
 {
     m_alive=set;
 }
