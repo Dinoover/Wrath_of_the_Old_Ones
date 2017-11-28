@@ -20,7 +20,7 @@ class Player
     void Set_deck(int);
     void Set_name(std::string);
     void Set_cp(int);
-    card* ouvrir_booster();
+    void ouvrir_booster(card*);
 
     std::string Get_name();
     int Get_cp();
