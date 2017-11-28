@@ -8,6 +8,13 @@
 
 #include "Card.hpp"
 
+Card::Card(){}
+
+Card:: ~Card()
+{
+
+}
+
 bool Card:: Get_hand_status()
 {
     return m_hand;
