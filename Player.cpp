@@ -20,11 +20,6 @@ void Player:: Set_cp(int cp)
   m_cp = cp;
 }
 
-void Player:: Set_deck(int deck[40][40][40])
-{
-
-}
-
 std::string Player:: Get_name()
 {
   return m_nom;
@@ -35,7 +30,21 @@ int Player:: Get_cp()
   return m_cp;
 }
 
-card* ouvrir_booster()
+void Player::ouvrir_booster(Card Jeu[G])
 {
+    int x;
+    bool trouver=NULL;
+    *m_cp = *m_cp - 10;
+    while (trouver==NULL)
+    {
+        x = rand()%G;
+        for (int i=0;i<collection.max_size();i++)
+        {
+            if(Jeu[x].Get_card_number()==collection[i]->Get_card_number())
+            {
+                collection.push_back(&Jeu[x]);
+            }
+        }
 
+    }
 }
