@@ -33,7 +33,6 @@ public:
     void Set_influence(int influence);
 };
 
-
 class Static_Parameters
 {
 protected:
@@ -45,43 +44,49 @@ protected:
     
     std::string m_card_name;
     int card_type;//1-terra, 2-perso, 3-special
-    unsigned long card_unique_number;
+    int card_unique_number;
     
     //image de la carte A AJOUTER
     
 public:
     Static_Parameters();
-    Static_Parameters(int * blood, int * gold, int * power,int * influence, int * damage, std::string name, int type);
+    Static_Parameters(int * blood, int * gold, int * power,int* influence, int * damage, std::string name, int type, int number);
     ~Static_Parameters();
     
     int Get_damage_value();
-    void Set_damage_value(int damage);
+    int Get_card_number();
+    void Set_damage_value(int var);
+    void Set_card_number(int var);
     
-    //pas besoin de setters et getters car ce sint les partametres statiques
+    //pas besoin de setters et getters car ce sont les partametres statiques
     
 };
 
 class Sp_at_par
 {
 protected:
+    std::string m_special_at_name;
     int * m_blood_at_coast;
     int * m_gold_at_coast;
     int * m_power_at_coast;
-    int m_damage_value;
+    int * m_influence_at_coast;
+    int * m_damage_value;
 public:
     Sp_at_par();
     
-    Sp_at_par (int blood, int gold, int power, int damage);
+    Sp_at_par (int blood, int gold, int power, int damage, int influence, std::string name);
     
     ~Sp_at_par();
     
     int Get_blood_at_coast();
     int Get_gold_at_coast();
     int Get_power_at_coast();
+    int Get_influence_at_coast();
     
-    void Set_blood_at_coast();
-    void Set_gold_at_coast();
-    void Set_power_at_coast();
+    void Set_blood_at_coast(int var);
+    void Set_gold_at_coast(int var);
+    void Set_power_at_coast(int var);
+    void Set_influence_at_coast(int var);
     
 };
 
