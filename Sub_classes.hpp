@@ -6,15 +6,16 @@
 #define Sub_classes_hpp
 
 #include <iostream>
+
 //#include "Card.hpp"
 
 class Ressource
 {
 protected:
-    int* m_blood;
-    int* m_gold;
-    int* m_power;
-    int* m_influence;
+    int m_blood;
+    int m_gold;
+    int m_power;
+    int m_influence;
 public:
     Ressource();
     
@@ -36,11 +37,11 @@ public:
 class Static_Parameters
 {
 protected:
-    int* m_blood_coast;
-    int* m_gold_coast;
-    int* m_power_coast;
-    int* m_influence_coast;
-    int* m_damage_value;
+    int m_blood_coast;
+    int m_gold_coast;
+    int m_power_coast;
+    int m_influence_coast;
+    int m_damage_value;
     
     std::string m_card_name;
     int card_type;//1-terra, 2-perso, 3-special
@@ -50,11 +51,17 @@ protected:
     
 public:
     Static_Parameters();
-    Static_Parameters(int * blood, int * gold, int * power,int* influence, int * damage, std::string name, int type, int number);
+    Static_Parameters(int  blood, int  gold, int  power,int influence, int  damage, std::string name, int type, int number);
     ~Static_Parameters();
     
     int Get_damage_value();
     int Get_card_number();
+    int Get_blood_coast();
+    int Get_gold_coast();
+    int Get_power_coast();
+    int Get_influence_coast();
+    std::string Get_card_name();
+    int Get_card_type();
     void Set_damage_value(int var);
     void Set_card_number(int var);
     
@@ -66,11 +73,11 @@ class Sp_at_par
 {
 protected:
     std::string m_special_at_name;
-    int * m_blood_at_coast;
-    int * m_gold_at_coast;
-    int * m_power_at_coast;
-    int * m_influence_at_coast;
-    int * m_damage_value;
+    int m_blood_at_coast;
+    int m_gold_at_coast;
+    int m_power_at_coast;
+    int m_influence_at_coast;
+    int m_damage_value;
 public:
     Sp_at_par();
     
@@ -93,11 +100,11 @@ public:
 class Variant_Parametrs
 {
 protected:
-    int *m_force;
-    int *m_HP;
+    int m_force;
+    int m_HP;
 public:
     Variant_Parametrs();
-    Variant_Parametrs(int * m_force, int* m_HP);
+    Variant_Parametrs(int  m_force, int m_HP);
     ~Variant_Parametrs();
     
     int Get_force();
