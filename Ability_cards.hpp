@@ -11,24 +11,34 @@
 
 #include "Card.hpp"
 
-class Ability_card : public Card
+class Ability
 {
+private:
+    int Ability_number;
+    std::string Ability_description;
 public:
-    Ability_card();
-    ~Ability_card();
+    Ability();
+    ~Ability();
     
-    
-    virtual void Use_ability(Card* carta);
+    virtual void Use_ability();
+
 };
 
 //Cartes avec alilites differentes
 
-class Purify_card :public Ability_card
+class Fire_Ability: public Ability
 {
+private:
 public:
+   void Use_ability(Card* card_to_destroy);
+};
+
+class Sacrifice_abilit: public Ability
+{
+private:
     
-    void Use_ability(Card* carta);
-    
+public:
+    void Use_ability(Card* card_to_destroy, Card* card_to_get);
 };
 
 #endif /* Ability_cards_hpp */
