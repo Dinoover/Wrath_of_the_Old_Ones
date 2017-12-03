@@ -1,3 +1,5 @@
+#include <cstdlib>
+#include <ctime>
 #include "Player.hpp"
 
 Player:: Player()
@@ -17,8 +19,9 @@ void Player:: Set_name(std::string nom)
 
 void Player:: Set_cp(int cp)
 {
-  m_cp = cp;
+  *m_cp = cp;
 }
+
 
 std::string Player:: Get_name()
 {
@@ -27,7 +30,7 @@ std::string Player:: Get_name()
 
 int Player:: Get_cp()
 {
-  return m_cp;
+  return *m_cp;
 }
 
 void Player::ouvrir_booster(Card Jeu[G])
@@ -47,4 +50,5 @@ void Player::ouvrir_booster(Card Jeu[G])
         }
 
     }
+
 }
