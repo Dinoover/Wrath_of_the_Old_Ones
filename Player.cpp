@@ -10,13 +10,14 @@
 
 Player:: Player (std::string name, std::vector<Card*> Cards)
 {
+    p_Money=0;
     int i,j;
     int cards_number(0);
     int card;
     std::ifstream file (name+".txt");
     if(file.is_open())
     {
-        file.ignore(1,'\n');
+        file>>p_Money;
         file>>cards_number;
         for(i=0;i<cards_number;i++)
         {
