@@ -27,6 +27,16 @@ public:
     void Save_player();
     
     
+    int Get_p_HP();
+    int Get_p_Money();
+    std::string Get_p_name();
+    std::vector <Card*> Get_p_collection();
+    std::vector <Card*> Get_p_deck();
+    
+    void Set_p_HP(int var);
+    void Set_p_Money(int var);
+    void Set_p_name(std::string var);
+    
     
 };
 
