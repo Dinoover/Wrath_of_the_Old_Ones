@@ -3,7 +3,7 @@
 
 
 #include "Sub_classes.hpp"
-//Ressource
+
 Ressource:: Ressource()
 {
     
@@ -77,7 +77,7 @@ Static_Parameters:: Static_Parameters(int  blood, int  gold, int power,int influ
     m_influence_coast=influence;
     m_damage_value=damage;
     m_card_name=name;
-    card_type=type;
+    card_type=type;// 1- pour les cartes ressource, 2 pour les creatures et 3 pour les cartes abilitees
     card_unique_number=number;
     
 }
