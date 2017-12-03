@@ -105,7 +105,7 @@ protected:
     bool m_deck;
     bool m_invoked;
     bool m_alive;
-    int m_card_deck_number;
+  
 public:
     Variant_Parametrs();
     Variant_Parametrs(int  m_force, int m_HP);
