@@ -7,8 +7,8 @@
 
 #include <iostream>
 
-//#include "Card.hpp"
 
+//Classe des ressources (non nul pour les cartes qui produisent des ressources)
 class Ressource
 {
 protected:
@@ -34,6 +34,8 @@ public:
     void Set_influence(int influence);
 };
 
+
+//Les parametres "invarients" de la carte- les caracterestiques de son attaque principale + nome, son type et son numero
 class Static_Parameters
 {
 protected:
@@ -68,7 +70,7 @@ public:
     //pas besoin de setters et getters car ce sont les partametres statiques
     
 };
-
+//
 class Sp_at_par
 {
 protected:
