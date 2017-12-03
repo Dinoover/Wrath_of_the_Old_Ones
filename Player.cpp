@@ -62,6 +62,11 @@ Player:: Player (std::string name, std::vector<Card*> Cards)
     }
 }
 
+Player:: ~Player()
+{
+    
+}
+
 void Player:: Save_player()
 {
     int i;
