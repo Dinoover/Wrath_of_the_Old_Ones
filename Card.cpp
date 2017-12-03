@@ -158,6 +158,12 @@ bool Card:: Get_live_status()
     return m_alive;
 }
 
+int Card::Get_card_number()
+{
+    return Get_card_number();
+}
+
+
 void Card:: Set_deck_status(bool set)
 {
     m_deck=set;
