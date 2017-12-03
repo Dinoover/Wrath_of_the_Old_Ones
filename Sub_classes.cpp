@@ -219,6 +219,11 @@ int Variant_Parametrs:: Get_HP()
     return m_HP;
 }
 
+int Variant_Parametrs:: Get_card_deck_number()
+{
+    return m_card_deck_number;
+}
+
 void Variant_Parametrs:: Set_force(int force)
 {
     m_force=force;
@@ -229,6 +234,40 @@ void Variant_Parametrs:: Set_HP(int HP)
 }
 
 
+bool Variant_Parametrs:: Get_deck_status()
+{
+    return m_deck;
+}
+
+bool Variant_Parametrs:: Get_invoke_status()
+{
+    return m_invoked;
+}
+
+bool Variant_Parametrs:: Get_live_status()
+{
+    return m_alive;
+}
+
+void Variant_Parametrs:: Set_deck_status(bool set)
+{
+    m_deck=set;
+}
+
+void Variant_Parametrs:: Set_invoke_status(bool set)
+{
+    m_invoked=set;
+}
+
+void Variant_Parametrs:: Set_live_status(bool set)
+{
+    m_alive=set;
+}
+
+void Variant_Parametrs:: Set_card_deck_number(int number)
+{
+    m_card_deck_number=number;
+}
 
 
 
