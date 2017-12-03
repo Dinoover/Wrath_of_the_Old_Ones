@@ -1,30 +1,33 @@
-#include <string>
-#include <vector>
-#include <fstream>
-#include <stack>
+//
+//  Player.hpp
+//  Card_Old_Gods_game
+//
+//  Created by Lazovchik on 03.12.17.
+//  Copyright © 2017 Lazovchik. All rights reserved.
+//
+
+#ifndef Player_hpp
+#define Player_hpp
+
 #include "Card.hpp"
 
 class Player
 {
-  private:
-
-    std::string m_nom;
-    int* m_cp; //money for the store (combat point)
-    std::stack<int> m_deck;
-    std::vector <Card*> collection;
-
-  public:
-
-    Player();
-    Player(std::string, int);
+private:
+    std::string p_name;
+    int p_HP;
+    int p_Money;
+    std::vector <Card*> p_collection;
+    std::map<Card*, Variant_Parametrs> p_deck;
+    
+public:
+    Player(std::string name, std::vector<Card*> Cards);
     ~Player();
-
-    void Set_deck(int);
-    void Set_name(std::string);
-    void Set_cp(int);
-    void ouvrir_booster(Card*);
-
-    std::string Get_name();
-    int Get_cp();
+    
+    void Save_player();
+    
+    
+    
 };
 
+#endif /* Player_hpp */
