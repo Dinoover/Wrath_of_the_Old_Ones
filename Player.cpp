@@ -93,3 +93,37 @@ void Player:: Save_player()
         std::cout<<"ERROR file opening is incorrect";
     }
 }
+
+int Player:: Get_p_HP()
+{
+    return p_HP;
+}
+int Player:: Get_p_Money()
+{
+    return p_Money;
+}
+std::string Player:: Get_p_name()
+{
+    return p_name;
+}
+std::vector <Card*> Player:: Get_p_collection()
+{
+    return p_collection;
+}
+std::vector <Card*> Player:: Get_p_deck()
+{
+    return p_deck;
+}
+
+void Player:: Set_p_HP(int var)
+{
+    p_HP=var;
+}
+void Player:: Set_p_Money(int var)
+{
+    p_Money=var;
+}
+void Player:: Set_p_name(std::string var)
+{
+    p_name=var;
+}
