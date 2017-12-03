@@ -8,16 +8,15 @@
 
 #ifndef Card_hpp
 #include<fstream>
+#include <vector>
+#include <map>
 #include "Sub_classes.hpp"
 
 
 class Card
 {
 private:
-    bool m_deck;
-    bool m_invoked;
-    bool m_alive;
-    
+ 
     Ressource* m_ressources;//pour les carte-terrain
     Static_Parameters* m_s_parametrs;//nom, image, cout etc..
     Variant_Parametrs* m_v_parametres;//la vie, la force
@@ -29,24 +28,18 @@ public:
      Card( std::ifstream &file);
      Card();
     ~Card();
+    //int Get_ressource(int var);
+   // int  Get_s_parameter(int var);
     
-    bool Get_deck_status();
-    bool Get_invoke_status();
-    bool Get_live_status();
-    int Get_card_number();
+    Ressource* Set_ressource();
+    Static_Parameters* Set_static_parameters();
+    Sp_at_par* Set_sp_at_parameters();
+    Variant_Parametrs* Set_variant_parameters();
     
-    void Set_deck_status (bool var);
-    void Set_invoke_status (bool var);
-    void Set_live_status (bool var);
-    
-    
-    
-    
-    int Get_ressource(int var);
-    
-
-    int  Get_s_parameter(int var);
-    
+    Ressource  Get_ressource();
+    Static_Parameters Get_s_parameter();
+    Sp_at_par Get_sp_at_parameters();
+    Variant_Parametrs Get_v_parameters();
     
     std::string Get_NAME()
     {
