@@ -1,54 +1,89 @@
-#include <cstdlib>
-#include <ctime>
+//
+//  Player.cpp
+//  Card_Old_Gods_game
+//
+//  Created by Lazovchik on 03.12.17.
+//  Copyright © 2017 Lazovchik. All rights reserved.
+//
+
 #include "Player.hpp"
 
-Player:: Player()
-:m_nom(""), m_cp(0)
-{}
-
-Player:: Player(std::string nom, int cp)
-{}
-
-Player:: ~Player()
-{}
-
-void Player:: Set_name(std::string nom)
+Player:: Player (std::string name, std::vector<Card*> Cards)
 {
-  m_nom = nom;
-}
-
-void Player:: Set_cp(int cp)
-{
-  *m_cp = cp;
-}
-
-
-std::string Player:: Get_name()
-{
-  return m_nom;
-}
-
-int Player:: Get_cp()
-{
-  return *m_cp;
-}
-
-void Player::ouvrir_booster(Card Jeu[G])
-{
-    int x;
-    bool trouver=NULL;
-    *m_cp = *m_cp - 10;
-    while (trouver==NULL)
+    int i,j;
+    int cards_number(0);
+    int card;
+    std::ifstream file (name+".txt");
+    if(file.is_open())
     {
-        x = rand()%G;
-        for (int i=0;i<collection.max_size();i++)
+        file.ignore(2,'\n');
+        file>>cards_number;
+        for(i=0;i<cards_number;i++)
         {
-            if(Jeu[x].Get_card_number()==collection[i]->Get_card_number())
+            file>>card;
+            for(j=0; j<Cards.size(); j++)
             {
-                collection.push_back(&Jeu[x]);
+                if (Cards[j]->Get_s_parameter().Get_card_number()==card)
+                {
+                    p_collection.push_back(Cards[j]);
+                    
+                }
+                
             }
+            
         }
-
+        
+        
+        file.close();
     }
+    else
+    {
+        std::ofstream new_file(name+".txt");
+        if(new_file.is_open())
+        {
+            new_file<<p_Money;
+            new_file<<std::endl;
+            new_file<<Cards.size();
+            for(i=0; i<Cards.size();i++)
+            {
+                new_file<<Cards[i]->Get_s_parameter().Get_card_number();
+                p_collection.push_back(Cards[i]);
+                new_file<<std::endl;
+            }
+            
+            new_file.close();
+            
+            
+        }
+        else
+        {
+            std::cout<<"ERROR file opening is incorrect";
+        }
+    }
+}
 
+void Player:: Save_player()
+{
+    int i;
+    std::ofstream new_file(p_name+".txt");
+    if(new_file.is_open())
+    {
+        new_file<<p_Money;
+        new_file<<std::endl;
+        new_file<<p_collection.size();
+        for(i=0; i<p_collection.size();i++)
+        {
+            new_file<<p_collection[i]->Get_s_parameter().Get_card_number();
+            p_collection.push_back(p_collection[i]);
+            new_file<<std::endl;
+        }
+        
+        new_file.close();
+        
+        
+    }
+    else
+    {
+        std::cout<<"ERROR file opening is incorrect";
+    }
 }
