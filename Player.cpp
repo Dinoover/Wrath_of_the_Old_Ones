@@ -1,33 +1,36 @@
-//
+
 //  Player.cpp
-//  Card_Old_Gods_game
-//
-//  Created by Lazovchik on 03.12.17.
-//  Copyright © 2017 Lazovchik. All rights reserved.
-//
+
 
 #include "Player.hpp"
+//constructeur de player
+
 
 Player:: Player (std::string name, std::vector<Card*> Cards)
 {
-    p_Money=0;
+    p_Money=0;//initialement pour un nouveua player on donne 0 argent
     int i,j;
-    int cards_number(0);
-    int card;
+    int cards_number(0);//combien il y de cartes dans la collection
+    int card;//numero de la carte qu'on recupere
+   //d'abbord on essay d'ouvrir un ficher avec le nom du joueur en mode lecture
     std::ifstream file (name+".txt");
-    if(file.is_open())
+    if(file.is_open())// si le fichier existe, alors on va le lire
     {
-        file>>p_Money;
-        file>>cards_number;
+        file>>p_Money;// premier valeur lue- l'argent
+        file>>cards_number;// second valeur- nombre des cartes dans la collection
         for(i=0;i<cards_number;i++)
         {
-            file>>card;
+            file>>card;// le numero de la carte
             for(j=0; j<Cards.size(); j++)
             {
-                if (Cards[j]->Get_s_parameter().Get_card_number()==card)
+                if (Cards[j]->Get_s_parameter().Get_card_number()==card)// on cherche la carte avec ce numero dans la collection generale et ajoute le dand la collection du joueur
                 {
                     p_collection.push_back(Cards[j]);
                     
+                }
+                else
+                {
+                    std::cout<<"Reading error"<<std::endl;
                 }
                 
             }
@@ -37,11 +40,13 @@ Player:: Player (std::string name, std::vector<Card*> Cards)
         
         file.close();
     }
-    else
+    else//si e file n'existe pas (le joueur est nouveau)
     {
+        //on cree le file et l'ouvre en mode ecriture
         std::ofstream new_file(name+".txt");
         if(new_file.is_open())
         {
+            //on est genereux et on recopie toute la collection existante dans le file du joueur et dans ca collection a lui
             new_file<<p_Money;
             new_file<<std::endl;
             new_file<<Cards.size();
@@ -68,9 +73,12 @@ Player:: ~Player()
 {
     
 }
+
+//on sauvegarde la collection et les donnees du joueur
 void Player:: Save_player()
 {
     int i;
+    //on ouvre son file (ca efface son contenu) et on retape toutes les infos necessaires recuperees de l'objet
     std::ofstream new_file(p_name+".txt");
     if(new_file.is_open())
     {
@@ -93,7 +101,7 @@ void Player:: Save_player()
         std::cout<<"ERROR file opening is incorrect";
     }
 }
-
+//les getteurs et les setteurs
 int Player:: Get_p_HP()
 {
     return p_HP;
@@ -127,8 +135,11 @@ void Player:: Set_p_name(std::string var)
 {
     p_name=var;
 }
+//le setteur pour le deck, on prends la collection generale et le numero de la carte a ajouter dans notre deck
 void Player:: Set_deck_card(std::vector<Card*> cards_table, int number )
 {
+    // on cree une carte vide dans le deck et on recopie le contenu de la carte souhaite dans cette carte vide
     p_deck.push_back(new Card());
     *(p_deck.end())=(cards_table[number]);
 }
+
