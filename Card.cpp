@@ -100,7 +100,7 @@ Card::~Card ()
     delete m_sp_at_parameter;*/
 }
 
-
+/*
 int Card:: Get_ressource(int var)
 {
     
@@ -117,8 +117,8 @@ int Card:: Get_ressource(int var)
         return 0;
     }
     
-}
-int Card:: Get_s_parameter(int var)
+}*/
+/*int Card:: Get_s_parameter(int var)
 {
     
         if (var==1)
@@ -140,41 +140,44 @@ int Card:: Get_s_parameter(int var)
          return 0;
     }
     
-}
+}*/
 
-
-bool Card:: Get_deck_status()
+Ressource Card:: Get_ressource()
 {
-    return m_deck;
+    return *m_ressources;
 }
 
-bool Card:: Get_invoke_status()
+Static_Parameters Card:: Get_s_parameter()
 {
-    return m_invoked;
+    return * m_s_parametrs;
+    
 }
 
-bool Card:: Get_live_status()
+Sp_at_par Card:: Get_sp_at_parameters()
 {
-    return m_alive;
+    return * m_sp_at_parameter;
 }
-
-int Card::Get_card_number()
+Variant_Parametrs Card:: Get_v_parameters()
 {
-    return Get_card_number();
+    return *m_v_parametres;
 }
 
 
-void Card:: Set_deck_status(bool set)
+Ressource* Card:: Set_ressource()
 {
-    m_deck=set;
+    return m_ressources;
+}
+Static_Parameters* Card:: Set_static_parameters()
+{
+    return m_s_parametrs;
+}
+Sp_at_par* Card:: Set_sp_at_parameters()
+{
+    return m_sp_at_parameter;
+}
+Variant_Parametrs* Card:: Set_variant_parameters()
+{
+    return m_v_parametres;
 }
 
-void Card:: Set_invoke_status(bool set)
-{
-    m_invoked=set;
-}
 
-void Card:: Set_live_status(bool set)
-{
-    m_alive=set;
-}
