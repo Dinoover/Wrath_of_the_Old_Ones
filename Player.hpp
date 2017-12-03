@@ -16,6 +16,7 @@ private:
     std::vector<Card*> p_deck;// la deck du joueur
     
 public:
+    Player();
     Player(std::string name, std::vector<Card*> Cards);
     ~Player();
     
