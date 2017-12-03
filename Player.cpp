@@ -45,6 +45,7 @@ Player:: Player (std::string name, std::vector<Card*> Cards)
             new_file<<p_Money;
             new_file<<std::endl;
             new_file<<Cards.size();
+            new_file<<std::endl;
             for(i=0; i<Cards.size();i++)
             {
                 new_file<<Cards[i]->Get_s_parameter().Get_card_number();
@@ -67,7 +68,6 @@ Player:: ~Player()
 {
     
 }
-
 void Player:: Save_player()
 {
     int i;
@@ -127,3 +127,4 @@ void Player:: Set_p_name(std::string var)
 {
     p_name=var;
 }
+
