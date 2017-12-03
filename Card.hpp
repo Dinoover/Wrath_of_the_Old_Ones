@@ -13,13 +13,13 @@ class Ability
 {
     
 private:
-    int m_ability_number;
-    bool used;
+    int m_ability_number;//numero unique de l'abilite
+    bool used;//si on utilise cette abilite ou pas
 public:
     Ability();
     Ability (int number);
     ~Ability();
-    
+    //getteurs et setteurs basiques
     int Get_ab_num();
     bool Get_use_stat();
     
@@ -54,7 +54,7 @@ public:
     Ability* Set_m_ability();
     
     
-   
+   //Pareille pour les getteurs, on va pouvoir utiliser les getteurs des objets elle-memes
     Ressource  Get_ressource();
     Static_Parameters Get_s_parameter();
     Sp_at_par Get_sp_at_parameters();
@@ -62,10 +62,6 @@ public:
     Ability Get_m_ability();
     
     
-    std::string Get_NAME()
-    {
-        return this->m_s_parametrs->Get_card_name();
-    }
     
     
 };
