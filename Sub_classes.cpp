@@ -1,10 +1,6 @@
-//
+
 //  Sub_classes.cpp
-//  Card_Old_Gods_game
-//
-//  Created by Lazovchik on 14.11.17.
-//  Copyright © 2017 Lazovchik. All rights reserved.
-//
+
 
 #include "Sub_classes.hpp"
 //Ressource
@@ -26,7 +22,7 @@ Ressource:: ~Ressource()
 {
     
 }
-
+//getters
  int Ressource:: Get_blood()
 {
     return m_blood;
@@ -44,7 +40,7 @@ int Ressource::Get_influence()
     return m_influence;
 }
 
-
+//setters
 void Ressource:: Set_blood(int var)
 {
     m_blood=var;
@@ -62,6 +58,11 @@ void Ressource::Set_influence(int influence)
 {
     m_influence=influence;
 }
+
+
+
+
+
 //Static_par
 
 Static_Parameters:: Static_Parameters()
@@ -84,7 +85,7 @@ Static_Parameters:: ~Static_Parameters()
 {
     
 }
-
+//getters
 int Static_Parameters:: Get_damage_value()
 {
       return m_damage_value;
@@ -121,6 +122,8 @@ std::string Static_Parameters:: Get_card_name()
     return card_type;
 }
 
+
+//setters, on va avoir besoin de set manuelement que ces deux parametres, les autres sont invarient
 void Static_Parameters:: Set_damage_value(int var)
 {
     m_damage_value=var;
@@ -131,6 +134,7 @@ void Static_Parameters:: Set_card_number(int var)
 }
 
 
+//Attaque Supplementaire
 
 Sp_at_par:: Sp_at_par()
 {
@@ -151,7 +155,7 @@ Sp_at_par:: ~Sp_at_par()
 {
 
 }
-
+//getters
 int Sp_at_par:: Get_blood_at_coast()
 {
     return m_blood_at_coast;
@@ -169,7 +173,7 @@ int Sp_at_par:: Get_influence_at_coast()
     return m_influence_at_coast;
 }
 
-
+//setters
 void Sp_at_par:: Set_blood_at_coast(int var)
 {
     m_blood_at_coast=var;
@@ -186,6 +190,10 @@ void Sp_at_par:: Set_influence_at_coast(int var)
 {
     m_influence_at_coast=var;
 }
+
+
+
+//Variant Parameters
 Variant_Parametrs:: Variant_Parametrs()
 {
     
@@ -201,10 +209,10 @@ Variant_Parametrs:: Variant_Parametrs(int force, int HP)
         m_HP=0;
         m_force=0;
     }
-    
     m_deck=false;
     m_alive=true;
     m_invoked=false;
+    
     
 }
 Variant_Parametrs:: ~Variant_Parametrs()
@@ -212,6 +220,7 @@ Variant_Parametrs:: ~Variant_Parametrs()
     
 }
 
+//getters
 int Variant_Parametrs:: Get_force()
 {
     return m_force;
@@ -225,16 +234,6 @@ int Variant_Parametrs:: Get_card_deck_number()
 {
     return m_card_deck_number;
 }
-
-void Variant_Parametrs:: Set_force(int force)
-{
-    m_force=force;
-}
-void Variant_Parametrs:: Set_HP(int HP)
-{
-    m_HP=HP;
-}
-
 
 bool Variant_Parametrs:: Get_deck_status()
 {
@@ -251,6 +250,7 @@ bool Variant_Parametrs:: Get_live_status()
     return m_alive;
 }
 
+//setters
 void Variant_Parametrs:: Set_deck_status(bool set)
 {
     m_deck=set;
@@ -269,6 +269,15 @@ void Variant_Parametrs:: Set_live_status(bool set)
 void Variant_Parametrs:: Set_card_deck_number(int number)
 {
     m_card_deck_number=number;
+}
+
+void Variant_Parametrs:: Set_force(int force)
+{
+    m_force=force;
+}
+void Variant_Parametrs:: Set_HP(int HP)
+{
+    m_HP=HP;
 }
 
 
