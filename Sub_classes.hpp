@@ -102,6 +102,10 @@ class Variant_Parametrs
 protected:
     int m_force;
     int m_HP;
+    bool m_deck;
+    bool m_invoked;
+    bool m_alive;
+    int m_card_deck_number;
 public:
     Variant_Parametrs();
     Variant_Parametrs(int  m_force, int m_HP);
@@ -109,9 +113,19 @@ public:
     
     int Get_force();
     int Get_HP();
+    int Get_card_deck_number();
     
     void Set_force(int force);
     void Set_HP(int HP);
+    void Set_card_deck_number(int number);
+    
+    bool Get_deck_status();
+    bool Get_invoke_status();
+    bool Get_live_status();
+    
+    void Set_deck_status (bool var);
+    void Set_invoke_status (bool var);
+    void Set_live_status (bool var);
     
 };
 
