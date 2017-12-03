@@ -92,18 +92,16 @@ Card::~Card ()
    
 }
 
-
+//les getteurs et les setteurs, fonctionnent comme decrit dans le hpp
 Ressource Card:: Get_ressource()
 {
     return *m_ressources;
 }
-
 Static_Parameters Card:: Get_s_parameter()
 {
     return * m_s_parametrs;
     
 }
-
 Sp_at_par Card:: Get_sp_at_parameters()
 {
     return * m_sp_at_parameter;
@@ -112,13 +110,13 @@ Variant_Parametrs Card:: Get_v_parameters()
 {
     return *m_v_parametres;
 }
-
-
-
 Ability Card:: Get_m_ability()
 {
     return *m_ability;
 }
+
+
+//setters
 
 Ressource* Card:: Set_ressource()
 {
@@ -158,7 +156,7 @@ Ability:: ~Ability ()
 {
     
 }
-
+//getters et setters
 int Ability:: Get_ab_num()
 {
     return m_ability_number;
