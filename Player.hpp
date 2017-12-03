@@ -36,7 +36,7 @@ public:
     void Set_p_Money(int var);
     void Set_p_name(std::string var);
   
-
+    void Set_deck_card(std::vectot<Card*> cards_table, int number );
     
     
 };
