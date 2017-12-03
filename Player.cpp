@@ -5,6 +5,10 @@
 #include "Player.hpp"
 //constructeur de player
 
+Player:: Player()
+{
+    
+}
 
 Player:: Player (std::string name, std::vector<Card*> Cards)
 {
