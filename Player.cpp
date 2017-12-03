@@ -127,4 +127,8 @@ void Player:: Set_p_name(std::string var)
 {
     p_name=var;
 }
-
+void Player:: Set_deck_card(std::vector<Card*> cards_table, int number )
+{
+    p_deck.push_back(new Card());
+    *(p_deck.end())=(cards_table[number]);
+}
