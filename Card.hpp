@@ -33,6 +33,7 @@ public:
     bool Get_deck_status();
     bool Get_invoke_status();
     bool Get_live_status();
+    int Get_card_number();
     
     void Set_deck_status (bool var);
     void Set_invoke_status (bool var);
