@@ -1,132 +1,274 @@
-
+//
+//  Sub_classes.cpp
 //  Card_Old_Gods_game
+//
+//  Created by Lazovchik on 14.11.17.
+//  Copyright © 2017 Lazovchik. All rights reserved.
+//
 
-
-#ifndef Sub_classes_hpp
-#define Sub_classes_hpp
-
-#include <iostream>
-
-//#include "Card.hpp"
-
-class Ressource
+#include "Sub_classes.hpp"
+//Ressource
+Ressource:: Ressource()
 {
-protected:
-    int m_blood;
-    int m_gold;
-    int m_power;
-    int m_influence;
-public:
-    Ressource();
     
-    Ressource (int blood, int gold, int power, int influence);
-    
-    ~Ressource();
-    
-    int Get_blood();
-    int Get_gold();
-    int Get_power();
-    int Get_influence();
-    
-    void Set_blood(int var);
-    void Set_gold(int var);
-    void Set_power(int var);
-    void Set_influence(int influence);
-};
+}
 
-class Static_Parameters
+Ressource:: Ressource (int blood, int gold, int power, int influence)
 {
-protected:
-    int m_blood_coast;
-    int m_gold_coast;
-    int m_power_coast;
-    int m_influence_coast;
-    int m_damage_value;
+    m_blood=blood;
+    m_gold=gold;
+    m_power=power;
+    m_influence=influence;
     
-    std::string m_card_name;
-    int card_type;//1-terra, 2-perso, 3-special
-    int card_unique_number;
-    
-    //image de la carte A AJOUTER
-    
-public:
-    Static_Parameters();
-    Static_Parameters(int  blood, int  gold, int  power,int influence, int  damage, std::string name, int type, int number);
-    ~Static_Parameters();
-    
-    int Get_damage_value();
-    int Get_card_number();
-    int Get_blood_coast();
-    int Get_gold_coast();
-    int Get_power_coast();
-    int Get_influence_coast();
-    std::string Get_card_name();
-    int Get_card_type();
-    void Set_damage_value(int var);
-    void Set_card_number(int var);
-    
-    //pas besoin de setters et getters car ce sont les partametres statiques
-    
-};
+}
 
-class Sp_at_par
+Ressource:: ~Ressource()
 {
-protected:
-    std::string m_special_at_name;
-    int m_blood_at_coast;
-    int m_gold_at_coast;
-    int m_power_at_coast;
-    int m_influence_at_coast;
-    int m_damage_value;
-public:
-    Sp_at_par();
     
-    Sp_at_par (int blood, int gold, int power, int damage, int influence, std::string name);
-    
-    ~Sp_at_par();
-    
-    int Get_blood_at_coast();
-    int Get_gold_at_coast();
-    int Get_power_at_coast();
-    int Get_influence_at_coast();
-    
-    void Set_blood_at_coast(int var);
-    void Set_gold_at_coast(int var);
-    void Set_power_at_coast(int var);
-    void Set_influence_at_coast(int var);
-    
-};
+}
 
-class Variant_Parametrs
+ int Ressource:: Get_blood()
 {
-protected:
-    int m_force;
-    int m_HP;
-    bool m_deck;
-    bool m_invoked;
-    bool m_alive;
-    int m_card_deck_number;
-public:
-    Variant_Parametrs();
-    Variant_Parametrs(int  m_force, int m_HP);
-    ~Variant_Parametrs();
-    
-    int Get_force();
-    int Get_HP();
-    int Get_card_deck_number();
-    
-    void Set_force(int force);
-    void Set_HP(int HP);
-    void Set_card_deck_number(int number);
-    
-    bool Get_deck_status();
-    bool Get_invoke_status();
-    bool Get_live_status();
-    
-    void Set_deck_status (bool var);
-    void Set_invoke_status (bool var);
-    void Set_live_status (bool var);
-    
-};
+    return m_blood;
+}
+ int Ressource:: Get_gold()
+{
+    return  m_gold;
+}
+int Ressource:: Get_power()
+{
+    return m_power;
+}
+int Ressource::Get_influence()
+{
+    return m_influence;
+}
 
-#endif /* Sub_classes_hpp */
+
+void Ressource:: Set_blood(int var)
+{
+    m_blood=var;
+}
+void Ressource:: Set_gold(int var)
+{
+    m_gold=var;
+}
+void Ressource:: Set_power(int var)
+{
+    m_power=var;
+}
+
+void Ressource::Set_influence(int influence)
+{
+    m_influence=influence;
+}
+//Static_par
+
+Static_Parameters:: Static_Parameters()
+{
+    
+}
+Static_Parameters:: Static_Parameters(int  blood, int  gold, int power,int influence, int  damage, std::string name, int type, int number)
+{
+    m_blood_coast=blood;
+    m_gold_coast=gold;
+    m_power_coast=power;
+    m_influence_coast=influence;
+    m_damage_value=damage;
+    m_card_name=name;
+    card_type=type;
+    card_unique_number=number;
+    
+}
+Static_Parameters:: ~Static_Parameters()
+{
+    
+}
+
+int Static_Parameters:: Get_damage_value()
+{
+      return m_damage_value;
+}
+int Static_Parameters:: Get_card_number()
+{
+    return card_unique_number;
+}
+
+int Static_Parameters:: Get_blood_coast()
+{
+    return m_blood_coast;
+}
+int Static_Parameters:: Get_gold_coast()
+{
+    return m_gold_coast;
+}
+int Static_Parameters:: Get_power_coast()
+{
+    return m_power_coast;
+}
+int Static_Parameters:: Get_influence_coast()
+{
+    return m_influence_coast;
+}
+
+std::string Static_Parameters:: Get_card_name()
+{
+    return m_card_name;
+}
+
+ int Static_Parameters:: Get_card_type()
+{
+    return card_type;
+}
+
+void Static_Parameters:: Set_damage_value(int var)
+{
+    m_damage_value=var;
+}
+void Static_Parameters:: Set_card_number(int var)
+{
+    card_unique_number=var;
+}
+
+
+
+Sp_at_par:: Sp_at_par()
+{
+    
+}
+
+Sp_at_par:: Sp_at_par (int blood, int gold, int power, int damage, int influence, std::string name)
+{
+    m_blood_at_coast=blood;
+    m_gold_at_coast=gold;
+    m_power_at_coast=power;
+    m_damage_value=damage;
+    m_influence_at_coast=influence;
+     m_special_at_name=name;
+}
+
+Sp_at_par:: ~Sp_at_par()
+{
+
+}
+
+int Sp_at_par:: Get_blood_at_coast()
+{
+    return m_blood_at_coast;
+}
+int Sp_at_par:: Get_gold_at_coast()
+{
+    return m_gold_at_coast;
+}
+int Sp_at_par:: Get_power_at_coast()
+{
+    return m_power_at_coast;
+}
+int Sp_at_par:: Get_influence_at_coast()
+{
+    return m_influence_at_coast;
+}
+
+
+void Sp_at_par:: Set_blood_at_coast(int var)
+{
+    m_blood_at_coast=var;
+}
+void Sp_at_par:: Set_gold_at_coast(int var)
+{
+    m_gold_at_coast=var;
+}
+void Sp_at_par:: Set_power_at_coast(int var)
+{
+    m_power_at_coast=var;
+}
+void Sp_at_par:: Set_influence_at_coast(int var)
+{
+    m_influence_at_coast=var;
+}
+Variant_Parametrs:: Variant_Parametrs()
+{
+    
+}
+Variant_Parametrs:: Variant_Parametrs(int force, int HP)
+{   if (force!=0 && HP!=0)
+    {
+    m_force=force;
+    m_HP=HP;
+    }
+    else
+    {
+        m_HP=0;
+        m_force=0;
+    }
+    
+    
+    
+}
+Variant_Parametrs:: ~Variant_Parametrs()
+{
+    
+}
+
+int Variant_Parametrs:: Get_force()
+{
+    return m_force;
+}
+int Variant_Parametrs:: Get_HP()
+{
+    return m_HP;
+}
+
+int Variant_Parametrs:: Get_card_deck_number()
+{
+    return m_card_deck_number;
+}
+
+void Variant_Parametrs:: Set_force(int force)
+{
+    m_force=force;
+}
+void Variant_Parametrs:: Set_HP(int HP)
+{
+    m_HP=HP;
+}
+
+
+bool Variant_Parametrs:: Get_deck_status()
+{
+    return m_deck;
+}
+
+bool Variant_Parametrs:: Get_invoke_status()
+{
+    return m_invoked;
+}
+
+bool Variant_Parametrs:: Get_live_status()
+{
+    return m_alive;
+}
+
+void Variant_Parametrs:: Set_deck_status(bool set)
+{
+    m_deck=set;
+}
+
+void Variant_Parametrs:: Set_invoke_status(bool set)
+{
+    m_invoked=set;
+}
+
+void Variant_Parametrs:: Set_live_status(bool set)
+{
+    m_alive=set;
+}
+
+void Variant_Parametrs:: Set_card_deck_number(int number)
+{
+    m_card_deck_number=number;
+}
+
+
+
+
