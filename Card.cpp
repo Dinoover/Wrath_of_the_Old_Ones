@@ -1,10 +1,6 @@
-//
+
 //  Card.cpp
-//  Card_Old_Gods_game
-//
-//  Created by Lazovchik on 14.11.17.
-//  Copyright © 2017 Lazovchik. All rights reserved.
-//
+
 
 #include "Card.hpp"
 
@@ -14,14 +10,16 @@ Card::Card()
 }
 Card:: Card(std::ifstream  &file)
 {
+    //les variables pour recuperer les donnees de fichier
     int blood(0);
     int gold(0);
     int power(0);
     int influence(0);
     int damage(0);
+    int ab_number(0);//le numero de l'abilite
     int HP(0);
     int force(0);
-    std::string stroka;
+    std::string stroka;// pour recuperes les noms des cartes
     int card_type, card_number;
 
     
@@ -29,24 +27,25 @@ Card:: Card(std::ifstream  &file)
     
     if(file.is_open())
     {
+        //si la carte est creature
         if(card_type==2)
         {
-            file>>card_number;
-            file>>blood;
-            file>>gold>>power>>influence;
-            file>>blood>>gold>>power>>influence>>damage>>stroka;
+            m_ressources=NULL;//cette carte de produit pas de resssource
+            m_ability=NULL;//cette carte n'as pas d'abilitees
             
-      
-            m_ressources=NULL;
-           
+            //on recupere les donnees dans l'ordre prevu
+            file>>card_number;
+            file>>blood>>gold>>power>>influence;
+            file>>blood>>gold>>power>>influence>>damage>>stroka;
+            //on remplie les parametres statiques de la carte
             m_s_parametrs= new Static_Parameters(blood,gold,power,influence,damage,stroka,card_type,card_number);
             
-              file>>blood>>gold>>power>>influence>>damage>>stroka;
-            
-             m_sp_at_parameter=new Sp_at_par (blood,gold,power,damage,influence,stroka);
+            file>>blood>>gold>>power>>influence>>damage>>stroka;
+            //on remplie les parametres de l'attaque supplementaire
+            m_sp_at_parameter=new Sp_at_par (blood,gold,power,damage,influence,stroka);
             
             file>>force>>HP;
-            
+            //on remplie et initialise les parametres variants
             m_v_parametres=new Variant_Parametrs(force, HP);
             file.ignore(1,'\n');
             
@@ -62,6 +61,7 @@ Card:: Card(std::ifstream  &file)
             m_s_parametrs=new Static_Parameters (blood,gold,power,influence,damage,stroka,card_type,card_number);
             m_sp_at_parameter=NULL;
             m_v_parametres=NULL;
+            m_ability=NULL;
             file.ignore(1,'\n');
         }
         if (card_type==3)
@@ -69,10 +69,12 @@ Card:: Card(std::ifstream  &file)
             file>>card_number;
             m_ressources=NULL;
             m_sp_at_parameter=NULL;
-            file>>blood>>gold>>power>>influence;
+            file>>blood>>gold>>power>>influence>>ab_number;
             damage=0;
             file>>stroka;
             m_s_parametrs=new Static_Parameters (blood,gold,power,influence,damage,stroka,card_type,card_number);
+            //apres en fonction de numero de l'abilite on va utiliser un certain sous-programme pour immiter ces effets
+            m_ability= new Ability(ab_number);
              file.ignore(1,'\n');
             
         }
@@ -86,61 +88,10 @@ Card:: Card(std::ifstream  &file)
     
 }
 Card::~Card ()
-{/*
-    if(m_ressources!=NULL)
-    delete m_ressources;
-    
-    if(m_v_parametres!=NULL)
-    delete m_v_parametres;
-    
-    if(m_s_parametrs!=NULL)
-    delete m_s_parametrs;
-    
-    if( m_sp_at_parameter!=NULL)
-    delete m_sp_at_parameter;*/
+{
+   
 }
 
-/*
-int Card:: Get_ressource(int var)
-{
-    
-    if(var==1)
-               return this->m_ressources->Get_blood();
-    else if(var==2)
-               return this->m_ressources->Get_gold();
-    else if(var==3)
-               return this->m_ressources->Get_power();
-    else if (var==4)
-               return this->m_ressources->Get_influence();
-    else
-    {
-        return 0;
-    }
-    
-}*/
-/*int Card:: Get_s_parameter(int var)
-{
-    
-        if (var==1)
-                return this->m_s_parametrs->Get_blood_coast();
-        else if (var==2)
-                return this->m_s_parametrs->Get_gold_coast();
-        else if (var==3)
-                return this->m_s_parametrs->Get_power_coast();
-        else if (var==4)
-                return this->m_s_parametrs->Get_influence_coast();
-        else if (var==5)
-                return this->m_s_parametrs->Get_damage_value();
-        else if (var==6)
-                return this->m_s_parametrs->Get_card_type();
-        else if (var==7)
-                return this->m_s_parametrs->Get_card_number();
-    else
-    {
-         return 0;
-    }
-    
-}*/
 
 Ressource Card:: Get_ressource()
 {
@@ -163,6 +114,12 @@ Variant_Parametrs Card:: Get_v_parameters()
 }
 
 
+
+Ability Card:: Get_m_ability()
+{
+    return *m_ability;
+}
+
 Ressource* Card:: Set_ressource()
 {
     return m_ressources;
@@ -179,5 +136,44 @@ Variant_Parametrs* Card:: Set_variant_parameters()
 {
     return m_v_parametres;
 }
+Ability* Card:: Set_m_ability()
+{
+    return m_ability;
+}
 
+
+
+
+//ability
+
+Ability:: Ability()
+{
+    
+}
+Ability:: Ability (int number)
+{
+    m_ability_number=number;
+}
+Ability:: ~Ability ()
+{
+    
+}
+
+int Ability:: Get_ab_num()
+{
+    return m_ability_number;
+}
+bool Ability:: Get_use_stat()
+{
+    return used;
+}
+
+void Ability:: Set_ab_number(int var)
+{
+    m_ability_number=var;
+}
+void Ability:: Set_use_stat(bool var)
+{
+    used=var;
+}
 
