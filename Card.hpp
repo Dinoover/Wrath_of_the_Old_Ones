@@ -1,55 +1,73 @@
-//
+
 //  Card.hpp
-//  Card_Old_Gods_game
-//
-//  Created by Lazovchik on 14.11.17.
-//  Copyright © 2017 Lazovchik. All rights reserved.
-//
+
 
 #ifndef Card_hpp
-#include<fstream>
+#include <fstream>
 #include <vector>
 #include <map>
 #include "Sub_classes.hpp"
 
 
+class Ability
+{
+    
+private:
+    int m_ability_number;
+    bool used;
+public:
+    Ability();
+    Ability (int number);
+    ~Ability();
+    
+    int Get_ab_num();
+    bool Get_use_stat();
+    
+    void Set_ab_number(int var);
+    void Set_use_stat(bool var);
+
+    
+};
+
 class Card
 {
 private:
  
-    Ressource* m_ressources;//pour les carte-terrain
-    Static_Parameters* m_s_parametrs;//nom, image, cout etc..
-    Variant_Parametrs* m_v_parametres;//la vie, la force
-    Sp_at_par * m_sp_at_parameter;//attaque speciale
-    
-    //Accees au tableau des energies A FAIRE
+    Ressource* m_ressources;//pour les cartes de ressource
+    Static_Parameters* m_s_parametrs;//nom, image, cout d'attaque normale etc..
+    Variant_Parametrs* m_v_parametres;//la vie, la force, si la carte est dans le deck, mort ou sur le champ de bataille
+    Sp_at_par * m_sp_at_parameter;//attaque supplementaire et ses parametres
+    Ability * m_ability;//abilite pour les cartes de type abilite
     
 public:
      Card( std::ifstream &file);
      Card();
     ~Card();
-    //int Get_ressource(int var);
-   // int  Get_s_parameter(int var);
+  
     
+    //les getters ne sont pas void car ils vont retournes l'adress des objets pointée par les atributes et comme ca on va pouvoirutiliser les setters des ces objets
+    //ex: card->Set_ressource().Set_blood();
     Ressource* Set_ressource();
     Static_Parameters* Set_static_parameters();
     Sp_at_par* Set_sp_at_parameters();
     Variant_Parametrs* Set_variant_parameters();
+    Ability* Set_m_ability();
     
+    
+   
     Ressource  Get_ressource();
     Static_Parameters Get_s_parameter();
     Sp_at_par Get_sp_at_parameters();
     Variant_Parametrs Get_v_parameters();
+    Ability Get_m_ability();
+    
     
     std::string Get_NAME()
     {
         return this->m_s_parametrs->Get_card_name();
     }
-
-    //virtual void Use_Ability(Card* carta);
     
     
 };
-
 
 #endif /* Card_hpp */
