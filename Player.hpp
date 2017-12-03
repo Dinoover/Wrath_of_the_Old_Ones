@@ -18,7 +18,7 @@ private:
     int p_HP;
     int p_Money;
     std::vector <Card*> p_collection;
-    std::map<Card*, Variant_Parametrs> p_deck;
+    std::vecotr <Card*> p_deck;
     
 public:
     Player(std::string name, std::vector<Card*> Cards);
