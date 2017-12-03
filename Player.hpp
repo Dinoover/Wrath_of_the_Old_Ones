@@ -18,14 +18,13 @@ private:
     int p_HP;
     int p_Money;
     std::vector <Card*> p_collection;
-    std::vecotr <Card*> p_deck;
+    std::vector<Card*> p_deck;
     
 public:
     Player(std::string name, std::vector<Card*> Cards);
     ~Player();
     
     void Save_player();
-    
     
     int Get_p_HP();
     int Get_p_Money();
@@ -36,6 +35,8 @@ public:
     void Set_p_HP(int var);
     void Set_p_Money(int var);
     void Set_p_name(std::string var);
+  
+
     
     
 };
