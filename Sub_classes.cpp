@@ -202,7 +202,9 @@ Variant_Parametrs:: Variant_Parametrs(int force, int HP)
         m_force=0;
     }
     
-    
+    m_deck=false;
+    m_alive=true;
+    m_invoked=false;
     
 }
 Variant_Parametrs:: ~Variant_Parametrs()
