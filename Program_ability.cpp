@@ -1,4 +1,6 @@
 
+!!!!!!!!!!!!!!!!LE PLAY CARD NE COMPILE PAS J'AVAIS PAS VERIFIE!!!!!!
+
 void Play_card(Plateau *P, Card X)
 {
     switch(X.Get_s_parameter().Get_card_type())
