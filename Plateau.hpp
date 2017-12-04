@@ -18,12 +18,12 @@ class Plateau       //les elements suivis d'un 1 sont ceux que le joueur dont c'
 public:
     Plateau();
     ~Plateau();
-    Ressource Get_R1();
-    Ressource Get_R2();
-    Card Get_M1();
-    Card Get_M2();
-    Player Get_P1();
-    Player Get_P2();
+    Ressource *Get_R1();
+    Ressource *Get_R2();
+    Card *Get_M1();
+    Card *Get_M2();
+    Player *Get_P1();
+    Player *Get_P2();
     std::vector <Card*>* Get_Blood();
     std::vector <Card*>* Get_Influence();
     std::vector <Card*>* Get_Gold();
