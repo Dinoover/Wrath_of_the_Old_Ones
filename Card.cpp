@@ -51,8 +51,8 @@ Card:: Card(std::ifstream  &file)
             
             
         }
-        if(card_type==1)
-        {
+        if(card_type==1)//si la carte est carte-ressource
+        {//pareille
             file>>card_number;
             file>>blood>>gold>>power>>influence;
             m_ressources= new Ressource (blood, gold, power, influence);
@@ -64,7 +64,7 @@ Card:: Card(std::ifstream  &file)
             m_ability=NULL;
             file.ignore(1,'\n');
         }
-        if (card_type==3)
+        if (card_type==3)//si la carte est la carte ability
         {
             file>>card_number;
             m_ressources=NULL;
