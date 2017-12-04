@@ -132,6 +132,7 @@ void Playground:: add_ressource_card(int cards_number_in_deck, int player_number
     {
         m_ressource_cards_1.push_back(P1->Get_p_deck()[cards_number_in_deck]);
         m_ressource_cards_1[m_ressource_cards_1.size()-1]->Set_variant_parameters()->Set_invoke_status(true);
+        m_ressource_cards_1[m_ressource_cards_1.size()-1]->Set_variant_parameters()->Set_deck_status(false);
         
         
     }
@@ -139,6 +140,7 @@ void Playground:: add_ressource_card(int cards_number_in_deck, int player_number
     {
         m_ressource_cards_2.push_back(P2->Get_p_deck()[cards_number_in_deck]);
         m_ressource_cards_2[m_ressource_cards_2.size()-1]->Set_variant_parameters()->Set_invoke_status(true);
+        m_ressource_cards_2[m_ressource_cards_2.size()-1]->Set_variant_parameters()->Set_deck_status(false);
     }
     
 }
@@ -185,6 +187,21 @@ void Playground:: Update_player_ressource(int player_number)
         }
 
     }
+}
+
+void Playground:: Set_ingame_card(int player, int card_deck_number)
+{
+    if(player==1)
+    {
+        (P1->Get_p_deck())[card_deck_number]->Set_variant_parameters()->Set_invoke_status(true);
+        (P1->Get_p_deck())[card_deck_number]->Set_variant_parameters()->Set_deck_status(false);
+    }
+    else if (player==2)
+    {
+        (P1->Get_p_deck())[card_deck_number]->Set_variant_parameters()->Set_invoke_status(true);
+        (P1->Get_p_deck())[card_deck_number]->Set_variant_parameters()->Set_deck_status(false);
+    }
+    
 }
 
 /*void Playground:: Fin_de_tour()
