@@ -12,6 +12,7 @@ Player:: Player()
 }
 Player:: Player (std::string name, std::vector<Card*> Cards)
 {
+    p_tour=false; 
     p_HP=10;
     p_Money=0;//initialement pour un nouveua player on donne 0 argent
     int i,j;
@@ -107,6 +108,10 @@ void Player:: Save_player()
     }
 }
 //les getteurs et les setteurs
+bool Player:: Get_tour()
+{
+    return p_tour;
+}
 int Player:: Get_p_HP()
 {
     return p_HP;
@@ -128,6 +133,10 @@ std::vector <Card*> Player:: Get_p_deck()
     return p_deck;
 }
 
+void Player:: Set_tour(bool var)
+{
+    p_tour=var;
+}
 void Player:: Set_p_HP(int var)
 {
     p_HP=var;
