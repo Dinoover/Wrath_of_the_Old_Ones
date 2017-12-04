@@ -24,7 +24,7 @@ public:
     //getteurs
     int Get_p_HP();
     int Get_p_Money();
-    int Get_tour();
+    bool Get_tour();
     std::string Get_p_name();
     //pareille que dans la classe carte, pour recuperer les valeurs d'atribues, on pourras utiliser ces getteurs + les getteurs de la carte
     std::vector <Card*> Get_p_collection();
