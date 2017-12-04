@@ -1,4 +1,6 @@
 
+//  Player.hpp
+
 #ifndef Player_hpp
 #define Player_hpp
 
@@ -7,6 +9,7 @@
 class Player
 {
 private:
+    bool p_tour;//le tour du player
     std::string p_name;//le nom
     int p_HP;//les pv en jeu
     int p_Money;// de l'argent pour le magasin
@@ -21,11 +24,13 @@ public:
     //getteurs
     int Get_p_HP();
     int Get_p_Money();
+    int Get_tour();
     std::string Get_p_name();
     //pareille que dans la classe carte, pour recuperer les valeurs d'atribues, on pourras utiliser ces getteurs + les getteurs de la carte
     std::vector <Card*> Get_p_collection();
     std::vector <Card*> Get_p_deck();
     //setteurs basiques
+    void Set_tour(bool var);
     void Set_p_HP(int var);
     void Set_p_Money(int var);
     void Set_p_name(std::string var);
