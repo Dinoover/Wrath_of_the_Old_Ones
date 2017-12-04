@@ -161,7 +161,7 @@ void Playground:: Update_player_ressource(int player_number)
     {
         for (i=0;i<P1->Get_p_deck().size();i++)
         {
-            if (((P1->Get_p_deck())[i]->Get_s_parameter().Get_card_type()==1) && ((P1->Get_p_deck())[i]->Get_v_parameters().Get_invoke_status()==true ))
+            if (((P1->Get_p_deck())[i]->Get_s_parameter().Get_card_type()==1) && ((P1->Get_p_deck())[i]->Get_v_parameters().Get_invoke_status()==true ) &&((P1->Get_p_deck())[i]->Get_v_parameters().Get_deck_status()==false ))
            {
                R1->Set_blood(R1->Get_blood()+(P1->Get_p_deck())[i]->Get_ressource().Get_blood());
                R1->Set_gold(R1->Get_gold()+(P1->Get_p_deck())[i]->Get_ressource().Get_gold());
@@ -176,7 +176,7 @@ void Playground:: Update_player_ressource(int player_number)
     {
         for (i=0;i<P2->Get_p_deck().size();i++)
         {
-            if ((P2->Get_p_deck())[i]->Get_s_parameter().Get_card_type()==1 && ((P2->Get_p_deck())[i]->Get_v_parameters().Get_invoke_status()==true ))
+            if ((P2->Get_p_deck())[i]->Get_s_parameter().Get_card_type()==1 && ((P2->Get_p_deck())[i]->Get_v_parameters().Get_invoke_status()==true )&&((P2->Get_p_deck())[i]->Get_v_parameters().Get_deck_status()==false ))
             {
                 R2->Set_blood(R2->Get_blood()+(P2->Get_p_deck())[i]->Get_ressource().Get_blood());
                 R2->Set_gold(R2->Get_gold()+(P2->Get_p_deck())[i]->Get_ressource().Get_gold());
@@ -189,7 +189,7 @@ void Playground:: Update_player_ressource(int player_number)
     }
 }
 
-int Playground:: Set_ingame_card(int player, int card_deck_number)
+void Playground:: Set_ingame_card(int player, int card_deck_number)
 {
     int type(0);
     
@@ -239,7 +239,7 @@ int Playground:: Set_ingame_card(int player, int card_deck_number)
 
     }
     
-    return type;
+   
     
 }
 
