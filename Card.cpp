@@ -60,7 +60,7 @@ Card:: Card(std::ifstream  &file)
             blood=gold=power=influence=damage=0;
             m_s_parametrs=new Static_Parameters (blood,gold,power,influence,damage,stroka,card_type,card_number);
             m_sp_at_parameter=NULL;
-            m_v_parametres=NULL;
+            m_v_parametres=new Variant_Parametrs();
             m_ability=NULL;
             file.ignore(1,'\n');
         }
@@ -75,6 +75,7 @@ Card:: Card(std::ifstream  &file)
             m_s_parametrs=new Static_Parameters (blood,gold,power,influence,damage,stroka,card_type,card_number);
             //apres en fonction de numero de l'abilite on va utiliser un certain sous-programme pour immiter ces effets
             m_ability= new Ability(ab_number);
+            m_v_parametres=new Variant_Parametrs();
              file.ignore(1,'\n');
             
         }
