@@ -39,6 +39,8 @@ public:
     
     //quand on quite le jeu on sauvegade la collection et l'argent de player
     void Save_player();
+    
+    //pour mixer les cartes dans le deck 
     void Mix_deck();
 
     

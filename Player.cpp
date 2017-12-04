@@ -160,11 +160,12 @@ void Player:: Set_deck_card(int number)//(std::vector<Card*> cards_table, int nu
     *(p_deck[Get_p_deck().size()-1])=(*carta);
     delete carta;
 }
-
+//melange la deck
 void Player:: Mix_deck()
 {
     int i;
     int a(0),b(0);
+    //la deck consiste 15 cartes, la programme va swap entre eux 30 fois les cartes randomes de notre deck
     for (i=0;i<30;i++)
     {
         a=0;

@@ -6,6 +6,8 @@
 #define Sub_classes_hpp
 
 #include <iostream>
+#include<ctime>
+#include<cstdlib>
 
 
 //Classe des ressources (non nul pour les cartes qui produisent des ressources)
