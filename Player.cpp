@@ -5,11 +5,11 @@
 #include "Player.hpp"
 //constructeur de player
 
+
 Player:: Player()
 {
     
 }
-
 Player:: Player (std::string name, std::vector<Card*> Cards)
 {
     p_Money=0;//initialement pour un nouveua player on donne 0 argent
@@ -32,10 +32,10 @@ Player:: Player (std::string name, std::vector<Card*> Cards)
                     p_collection.push_back(Cards[j]);
                     
                 }
-                else
+                /*else
                 {
                     std::cout<<"Reading error"<<std::endl;
-                }
+                }*/
                 
             }
             
@@ -169,3 +169,4 @@ void Player:: Mix_deck()
     }
     
 }
+
