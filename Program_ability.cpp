@@ -1,4 +1,39 @@
 
+void Play_card(Plateau *P, Card X)
+{
+    switch(X.Get_s_parameter().Get_card_type())
+    {
+        case 1 :    &X.Set_variant_parameters().Set_invoke_status(true)
+                    if (1 == X.Get_ressource().Get_blood()))
+                    {
+                       P->Get_R1()->Set_gold(P->Get_R1()->Get_gold()+1); 
+                       P->Get_Blood1().push_back(&X);
+                    }
+                    if (1 == X.Get_ressource().Get_gold())
+                    {
+                         P->Get_R1()->Set_gold(P->Get_R1()->Get_gold()+1);
+                         P->Get_Gold1.push_back(&X);
+                    }
+                    if (1 == X.Get_ressource().Get_influence())
+                    {
+                         P->Get_R1()->Set_influence(P->Get_R1()->Get_influence()+1);
+                         P->Get_Influence1.push_back(&X);
+                    }
+                    if (1 == X.Get_ressource().Get_power())
+                    {
+                        P->Get_R1()->Set_power(P->Get_R1()->Get_power()+1);
+                        P->Get_Power1.push_back(&X);
+                    }
+                    break;
+                    
+        case 2 :    &X.Set_variant_parameters().Set_invoke_status(true)
+                    P->Get_Graveyard1().push_back(P->Get_M1());
+                    P->Get_M1()->Set_variant_parameters().Set_invoke_status(false)
+                    P->Get_M1()->Set_variant_parameters().Set_live_status(false)
+                    P->Get_M1() = &X;
+    }
+}
+
 void death_detect(Plateau* P)                                  //fonctionne qui detecte et traite la mort des 2 creatures
 {
     if (0>=P->Get_M1()->Get_v_parameters().Get_HP())
