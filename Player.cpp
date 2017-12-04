@@ -140,10 +140,32 @@ void Player:: Set_p_name(std::string var)
     p_name=var;
 }
 //le setteur pour le deck, on prends la collection generale et le numero de la carte a ajouter dans notre deck
-void Player:: Set_deck_card(std::vector<Card*> cards_table, int number )
+void Player:: Set_deck_card(int number)//(std::vector<Card*> cards_table, int number )
 {
+    Card* carta;
     // on cree une carte vide dans le deck et on recopie le contenu de la carte souhaite dans cette carte vide
     p_deck.push_back(new Card());
-    *(p_deck.end())=(cards_table[number]);
+    carta=new Card ();
+     *carta=* p_collection[number];
+    *(p_deck[Get_p_deck().size()-1])=(*carta);
+    delete carta;
 }
 
+void Player:: Mix_deck()
+{
+    int i;
+    int a(0),b(0);
+    for (i=0;i<30;i++)
+    {
+        a=0;
+        b=0;
+        do
+        {
+            a=rand()%14;
+            b=rand()%14;
+        }while(a==b);
+      
+        std::swap(p_deck[a], p_deck[b]);
+    }
+    
+}
