@@ -49,7 +49,7 @@ public:
     
     void Update_player_ressource(int player_number);
     
-    void Set_ingame_card(int player, int card_deck_number);
+    int Set_ingame_card(int player, int card_deck_number);
     
     void add_ressource_card(int cards_number_in_deck, int player_number);
     
