@@ -126,7 +126,7 @@ void Playground:: Send_card_to_grave(int player_number, int card_number)
 }
 
 
-void Playground:: add_ressource_card(int cards_number_in_deck, int player_number)
+/*void Playground:: add_ressource_card(int cards_number_in_deck, int player_number)
 {
     if(player_number==1)
     {
@@ -143,7 +143,7 @@ void Playground:: add_ressource_card(int cards_number_in_deck, int player_number
         m_ressource_cards_2[m_ressource_cards_2.size()-1]->Set_variant_parameters()->Set_deck_status(false);
     }
     
-}
+}*/
 
 void Playground:: Update_player_ressource(int player_number)
 {
@@ -189,18 +189,57 @@ void Playground:: Update_player_ressource(int player_number)
     }
 }
 
-void Playground:: Set_ingame_card(int player, int card_deck_number)
+int Playground:: Set_ingame_card(int player, int card_deck_number)
 {
+    int type(0);
+    
     if(player==1)
     {
         (P1->Get_p_deck())[card_deck_number]->Set_variant_parameters()->Set_invoke_status(true);
         (P1->Get_p_deck())[card_deck_number]->Set_variant_parameters()->Set_deck_status(false);
+        
+        type= P1->Get_p_deck()[card_deck_number]->Get_s_parameter().Get_card_type();
+        
+        if(type==1)
+        {
+            m_ressource_cards_1.push_back(P1->Get_p_deck()[card_deck_number]);
+        }
+        if (type==2)
+        {
+            In_game_creature_1=P1->Get_p_deck()[card_deck_number];
+            
+        }
+        if (type==3)
+        {
+            In_game_ability_1=P1->Get_p_deck()[card_deck_number];
+        }
+        
+        
     }
     else if (player==2)
     {
-        (P1->Get_p_deck())[card_deck_number]->Set_variant_parameters()->Set_invoke_status(true);
-        (P1->Get_p_deck())[card_deck_number]->Set_variant_parameters()->Set_deck_status(false);
+        (P2->Get_p_deck())[card_deck_number]->Set_variant_parameters()->Set_invoke_status(true);
+        (P2->Get_p_deck())[card_deck_number]->Set_variant_parameters()->Set_deck_status(false);
+        
+        type= P2->Get_p_deck()[card_deck_number]->Get_s_parameter().Get_card_type();
+        
+        if(type==1)
+        {
+            m_ressource_cards_2.push_back(P2->Get_p_deck()[card_deck_number]);
+        }
+        if (type==2)
+        {
+            In_game_creature_2=P2->Get_p_deck()[card_deck_number];
+            
+        }
+        if (type==3)
+        {
+            In_game_ability_2=P2->Get_p_deck()[card_deck_number];
+        }
+
     }
+    
+    return type;
     
 }
 
