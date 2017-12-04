@@ -1,6 +1,4 @@
 
-//  Player.hpp
-
 #ifndef Player_hpp
 #define Player_hpp
 
@@ -32,12 +30,11 @@ public:
     void Set_p_Money(int var);
     void Set_p_name(std::string var);
     //setteurs d'une carte dans la deck du joueur
-    void Set_deck_card(std::vector<Card*> cards_table, int number );
+    void Set_deck_card(int number);//(std::vector<Card*> cards_table, int number );
     
     //quand on quite le jeu on sauvegade la collection et l'argent de player
     void Save_player();
     void Mix_deck();
-  
 
     
     
