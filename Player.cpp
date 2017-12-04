@@ -12,6 +12,7 @@ Player:: Player()
 }
 Player:: Player (std::string name, std::vector<Card*> Cards)
 {
+    p_HP=10;
     p_Money=0;//initialement pour un nouveua player on donne 0 argent
     int i,j;
     int cards_number(0);//combien il y de cartes dans la collection
