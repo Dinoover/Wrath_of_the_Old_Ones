@@ -159,13 +159,12 @@ void Player:: Mix_deck()
     {
         a=0;
         b=0;
-        do
-        {
-            a=rand()%14;
-            b=rand()%14;
-        }while(a==b);
+        
+            a=rand()%(p_deck.size()-1);
+            b=rand()%(p_deck.size()-1);
+        
       
-        std::swap(p_deck[a], p_deck[b]);
+        std::swap(*p_deck[a], *p_deck[b]);
     }
     
 }
