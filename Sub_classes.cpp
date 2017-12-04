@@ -196,7 +196,11 @@ void Sp_at_par:: Set_influence_at_coast(int var)
 //Variant Parameters
 Variant_Parametrs:: Variant_Parametrs()
 {
-    
+    m_HP=1;
+    m_force=1;
+    m_deck=true;
+    m_alive=true;
+    m_invoked=false;
 }
 Variant_Parametrs:: Variant_Parametrs(int force, int HP)
 {   if (force!=0 && HP!=0)
@@ -209,7 +213,7 @@ Variant_Parametrs:: Variant_Parametrs(int force, int HP)
         m_HP=0;
         m_force=0;
     }
-    m_deck=false;
+    m_deck=true;
     m_alive=true;
     m_invoked=false;
     
