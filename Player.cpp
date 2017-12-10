@@ -1,4 +1,3 @@
-
 //  Player.cpp
 
 
@@ -8,14 +7,13 @@
 
 Player:: Player()
 {
-    
+
 }
 Player:: Player (std::string name, std::vector<Card*> Cards)
 {
-    p_tour=false; 
     p_HP=10;
-    p_Money=0;//initialement pour un nouveua player on donne 0 argent
-    int i,j;
+    p_Money=1000;//initialement pour un nouveua player on donne 0 argent
+    int i;
     int cards_number(0);//combien il y de cartes dans la collection
     int card;//numero de la carte qu'on recupere
    //d'abbord on essay d'ouvrir un ficher avec le nom du joueur en mode lecture
@@ -27,23 +25,23 @@ Player:: Player (std::string name, std::vector<Card*> Cards)
         for(i=0;i<cards_number;i++)
         {
             file>>card;// le numero de la carte
-            for(j=0; j<Cards.size(); j++)
+            for(unsigned j=0; j<Cards.size(); j++)
             {
                 if (Cards[j]->Get_s_parameter().Get_card_number()==card)// on cherche la carte avec ce numero dans la collection generale et ajoute le dand la collection du joueur
                 {
                     p_collection.push_back(Cards[j]);
-                    
+
                 }
                 /*else
                 {
                     std::cout<<"Reading error"<<std::endl;
                 }*/
-                
+
             }
-            
+
         }
-        
-        
+
+
         file.close();
     }
     else//si e file n'existe pas (le joueur est nouveau)
@@ -57,16 +55,16 @@ Player:: Player (std::string name, std::vector<Card*> Cards)
             new_file<<std::endl;
             new_file<<Cards.size();
             new_file<<std::endl;
-            for(i=0; i<Cards.size();i++)
+            for(unsigned i=0; i<Cards.size();i++)
             {
                 new_file<<Cards[i]->Get_s_parameter().Get_card_number();
                 p_collection.push_back(Cards[i]);
                 new_file<<std::endl;
             }
-            
+
             new_file.close();
-            
-            
+
+
         }
         else
         {
@@ -77,13 +75,12 @@ Player:: Player (std::string name, std::vector<Card*> Cards)
 
 Player:: ~Player()
 {
-    
+
 }
 
 //on sauvegarde la collection et les donnees du joueur
 void Player:: Save_player()
 {
-    int i;
     //on ouvre son file (ca efface son contenu) et on retape toutes les infos necessaires recuperees de l'objet
     std::ofstream new_file(p_name+".txt");
     if(new_file.is_open())
@@ -91,16 +88,16 @@ void Player:: Save_player()
         new_file<<p_Money;
         new_file<<std::endl;
         new_file<<p_collection.size();
-        for(i=0; i<p_collection.size();i++)
+        for(unsigned i=0; i<p_collection.size();i++)
         {
             new_file<<p_collection[i]->Get_s_parameter().Get_card_number();
             p_collection.push_back(p_collection[i]);
             new_file<<std::endl;
         }
-        
+
         new_file.close();
-        
-        
+
+
     }
     else
     {
@@ -108,10 +105,6 @@ void Player:: Save_player()
     }
 }
 //les getteurs et les setteurs
-bool Player:: Get_tour()
-{
-    return p_tour;
-}
 int Player:: Get_p_HP()
 {
     return p_HP;
@@ -133,10 +126,6 @@ std::vector <Card*> Player:: Get_p_deck()
     return p_deck;
 }
 
-void Player:: Set_tour(bool var)
-{
-    p_tour=var;
-}
 void Player:: Set_p_HP(int var)
 {
     p_HP=var;
@@ -158,25 +147,55 @@ void Player:: Set_deck_card(int number)//(std::vector<Card*> cards_table, int nu
     carta=new Card ();
      *carta=* p_collection[number];
     *(p_deck[Get_p_deck().size()-1])=(*carta);
+    std::cout << p_deck[p_deck.size()-1]->Get_s_parameter().Get_card_number() << std::endl;
     delete carta;
 }
-//melange la deck
+
 void Player:: Mix_deck()
 {
+    std::cout<<"huihui";
     int i;
     int a(0),b(0);
-    //la deck consiste 15 cartes, la programme va swap entre eux 30 fois les cartes randomes de notre deck
     for (i=0;i<30;i++)
     {
         a=0;
         b=0;
-        
-            a=rand()%(p_deck.size()-1);
-            b=rand()%(p_deck.size()-1);
-        
-      
+
+        a=rand()%(p_deck.size()-1);
+        b=rand()%(p_deck.size()-1);
+
         std::swap(*p_deck[a], *p_deck[b]);
     }
-    
+
+    for (unsigned i=0;i<p_deck.size();i++)
+    {
+     std::cout<<p_deck[i]->Get_s_parameter().Get_card_number() << std::endl;
+    }
+}
+
+void Player::Booster(std::vector <Card*> Jeu)
+{
+    int x;
+    p_Money = p_Money - 10;
+    if(p_collection.size()!=G)
+    {
+        bool trouver = true;
+        while (trouver == true)
+        {
+            trouver = false;
+            x = rand()%G;
+            for (unsigned int i = 0; i < p_collection.size(); i++)
+            {
+                    if(Jeu[x]->Get_s_parameter().Get_card_number() == p_collection[i]->Get_s_parameter().Get_card_number())
+                    {
+                        trouver = true;
+                    }
+                }
+            }
+        p_collection.push_back(Jeu[x]);
+    }else
+    {
+        std::cout<<"vous avez deja toute les cartes";
+    }
 }
 

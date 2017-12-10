@@ -1,4 +1,3 @@
-
 //  Card.cpp
 
 
@@ -6,7 +5,7 @@
 
 Card::Card()
 {
-    
+
 }
 Card:: Card(std::ifstream  &file)
 {
@@ -22,9 +21,9 @@ Card:: Card(std::ifstream  &file)
     std::string stroka;// pour recuperes les noms des cartes
     int card_type, card_number;
 
-    
+
     file>>card_type;
-    
+
     if(file.is_open())
     {
         //si la carte est creature
@@ -32,27 +31,27 @@ Card:: Card(std::ifstream  &file)
         {
             m_ressources=NULL;//cette carte de produit pas de resssource
             m_ability=NULL;//cette carte n'as pas d'abilitees
-            
+
             //on recupere les donnees dans l'ordre prevu
             file>>card_number;
             file>>blood>>gold>>power>>influence;
             file>>blood>>gold>>power>>influence>>damage>>stroka;
             //on remplie les parametres statiques de la carte
             m_s_parametrs= new Static_Parameters(blood,gold,power,influence,damage,stroka,card_type,card_number);
-            
+
             file>>blood>>gold>>power>>influence>>damage>>stroka;
             //on remplie les parametres de l'attaque supplementaire
             m_sp_at_parameter=new Sp_at_par (blood,gold,power,damage,influence,stroka);
-            
+
             file>>force>>HP;
             //on remplie et initialise les parametres variants
             m_v_parametres=new Variant_Parametrs(force, HP);
             file.ignore(1,'\n');
-            
-            
+
+
         }
-        if(card_type==1)//si la carte est carte-ressource
-        {//pareille
+        if(card_type==1)
+        {
             file>>card_number;
             file>>blood>>gold>>power>>influence;
             m_ressources= new Ressource (blood, gold, power, influence);
@@ -64,7 +63,7 @@ Card:: Card(std::ifstream  &file)
             m_ability=NULL;
             file.ignore(1,'\n');
         }
-        if (card_type==3)//si la carte est la carte ability
+        if (card_type==3)
         {
             file>>card_number;
             m_ressources=NULL;
@@ -77,20 +76,20 @@ Card:: Card(std::ifstream  &file)
             m_ability= new Ability(ab_number);
             m_v_parametres=new Variant_Parametrs();
              file.ignore(1,'\n');
-            
+
         }
     }
     else
     {
         std::cout<<"ERROR"<<std::endl;
     }
-    
-        
-    
+
+
+
 }
 Card::~Card ()
 {
-   
+
 }
 
 //les getteurs et les setteurs, fonctionnent comme decrit dans le hpp
@@ -101,7 +100,7 @@ Ressource Card:: Get_ressource()
 Static_Parameters Card:: Get_s_parameter()
 {
     return * m_s_parametrs;
-    
+
 }
 Sp_at_par Card:: Get_sp_at_parameters()
 {
@@ -147,7 +146,7 @@ Ability* Card:: Set_m_ability()
 
 Ability:: Ability()
 {
-    
+
 }
 Ability:: Ability (int number)
 {
@@ -155,7 +154,7 @@ Ability:: Ability (int number)
 }
 Ability:: ~Ability ()
 {
-    
+
 }
 //getters et setters
 int Ability:: Get_ab_num()
@@ -175,4 +174,3 @@ void Ability:: Set_use_stat(bool var)
 {
     used=var;
 }
-

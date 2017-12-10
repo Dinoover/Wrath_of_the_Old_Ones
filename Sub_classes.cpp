@@ -1,4 +1,3 @@
-
 //  Sub_classes.cpp
 
 
@@ -6,7 +5,7 @@
 
 Ressource:: Ressource()
 {
-    
+
 }
 
 Ressource:: Ressource (int blood, int gold, int power, int influence)
@@ -15,12 +14,12 @@ Ressource:: Ressource (int blood, int gold, int power, int influence)
     m_gold=gold;
     m_power=power;
     m_influence=influence;
-    
+
 }
 
 Ressource:: ~Ressource()
 {
-    
+
 }
 //getters
  int Ressource:: Get_blood()
@@ -67,7 +66,7 @@ void Ressource::Set_influence(int influence)
 
 Static_Parameters:: Static_Parameters()
 {
-    
+
 }
 Static_Parameters:: Static_Parameters(int  blood, int  gold, int power,int influence, int  damage, std::string name, int type, int number)
 {
@@ -79,11 +78,11 @@ Static_Parameters:: Static_Parameters(int  blood, int  gold, int power,int influ
     m_card_name=name;
     card_type=type;// 1- pour les cartes ressource, 2 pour les creatures et 3 pour les cartes abilitees
     card_unique_number=number;
-    
+
 }
 Static_Parameters:: ~Static_Parameters()
 {
-    
+
 }
 //getters
 int Static_Parameters:: Get_damage_value()
@@ -138,7 +137,7 @@ void Static_Parameters:: Set_card_number(int var)
 
 Sp_at_par:: Sp_at_par()
 {
-    
+
 }
 
 Sp_at_par:: Sp_at_par (int blood, int gold, int power, int damage, int influence, std::string name)
@@ -216,12 +215,12 @@ Variant_Parametrs:: Variant_Parametrs(int force, int HP)
     m_deck=true;
     m_alive=true;
     m_invoked=false;
-    
-    
+
+
 }
 Variant_Parametrs:: ~Variant_Parametrs()
 {
-    
+
 }
 
 //getters
@@ -283,7 +282,3 @@ void Variant_Parametrs:: Set_HP(int HP)
 {
     m_HP=HP;
 }
-
-
-
-
